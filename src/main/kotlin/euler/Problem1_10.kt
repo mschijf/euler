@@ -1,6 +1,7 @@
 package euler
 
 import com.tool.math.lcm
+import tool.math.getPrimeList
 import kotlin.math.absoluteValue
 import kotlin.math.max
 
@@ -13,6 +14,8 @@ fun main() {
     execute(6) { sumSquareDifference() }
     execute(7) { eratosthenes() }
     execute(8) { largestProductInASeries() }
+    execute(9) { specialPythagoreanTriplet() }
+    execute(10) { summationOfPrimes() }
 }
 
 fun execute(problemNumber: Int, getResult: () -> Any) {
@@ -88,22 +91,23 @@ fun sumSquareDifference(): Any {
 }
 
 fun eratosthenes(): Any {
-    val n = 1000_000
-    val strainer = Array(n){true}
-
-    var count=0
-    var i = 1
-    while (i < n) {
-        i++
-        while (i < n && !strainer[i])
-            i++
-        count++
-        if (count == 10_001)
-            return i
-        for (j in 2 * i until n step i)
-            strainer[j] = false
-    }
-    return -1
+//    val n = 1_000_000
+//    val strainer = Array(n){true}
+//
+//    var count=0
+//    var i = 1
+//    while (i < n) {
+//        i++
+//        while (i < n && !strainer[i])
+//            i++
+//        count++
+//        if (count == 10_001)
+//            return i
+//        for (j in 2 * i until n step i)
+//            strainer[j] = false
+//    }
+//    return -1
+    return getPrimeList(200_000)[10_001-1] //0-based
 }
 
 fun largestProductInASeries(): Any {
@@ -136,4 +140,18 @@ fun largestProductInASeries(): Any {
         .maxOf{list -> list.reduce { acc, i -> acc*i }}
 }
 
-//23514624000
+fun specialPythagoreanTriplet(): Any {
+    val n = 1000
+    for (a in 1 .. n/3) {
+        for (b in a+1 .. (n - a) / 2) {
+            val c = n - a - b
+            if (a*a + b*b == c*c)
+                return a*b*c
+        }
+    }
+    return 0
+}
+
+fun summationOfPrimes(): Any {
+    return getPrimeList(2_000_000).sumOf { it.toLong() }
+}
