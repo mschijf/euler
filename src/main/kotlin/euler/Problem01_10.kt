@@ -18,17 +18,12 @@ fun main() {
     execute(10) { summationOfPrimes() }
 }
 
-fun execute(problemNumber: Int, getResult: () -> Any) {
-    val startTime = System.currentTimeMillis()
-    val result = getResult()
-    val timePassed = System.currentTimeMillis() - startTime
-    println("Result of problem $problemNumber: $result (after ${timePassed / 1000}.${timePassed % 1000} sec)")
-}
-
+//1
 fun multiplesOf3And5():Any {
     return (0 .. 999).filter {it % 3 == 0 || it % 5 == 0}.sum()
 }
 
+//2
 fun evenFibonacciNumbers(): Any {
     var x1 = 1
     var x2 = 1
@@ -42,6 +37,7 @@ fun evenFibonacciNumbers(): Any {
     return sum
 }
 
+//3
 fun largestPrimeFactor(): Any {
     var number = 600851475143
     var divider = 2
@@ -55,6 +51,7 @@ fun largestPrimeFactor(): Any {
     return divider
 }
 
+//4
 fun largestPalindromeProduct(): Any {
     var max = 0
     for (first in 999 downTo 100) {
@@ -72,6 +69,7 @@ fun largestPalindromeProduct(): Any {
     return max
 }
 
+//5
 fun smallestMultiple(): Any {
     var number = 1
     for (i in 2 .. 20) {
@@ -80,66 +78,34 @@ fun smallestMultiple(): Any {
     return number
 }
 
+//6
 fun sumSquareDifference(): Any {
     val n = 100
 //    val tmp = (1..n).sum()
     val tmp = n * (n+1) / 2  //sum(1+2+3...+n) = (n(n+1)/2
     val squareOfSum = tmp * tmp
 //    val sumOfSquare = (1..n).sumOf { it * it }
-    val sumOfSquare = (2*n*n*n+3*n*n+n)/6  //sum(1^2+2^2+3^2...+n^2) = (2n^3 + 3n2 + n)/6
+    val sumOfSquare = (2*n*n*n + 3*n*n + n)/6  //sum(1^2+2^2+3^2...+n^2) = (2n^3 + 3n2 + n)/6
     return (sumOfSquare - squareOfSum).absoluteValue
 }
 
+//7
 fun eratosthenes(): Any {
-//    val n = 1_000_000
-//    val strainer = Array(n){true}
-//
-//    var count=0
-//    var i = 1
-//    while (i < n) {
-//        i++
-//        while (i < n && !strainer[i])
-//            i++
-//        count++
-//        if (count == 10_001)
-//            return i
-//        for (j in 2 * i until n step i)
-//            strainer[j] = false
-//    }
-//    return -1
     return getPrimeList(200_000)[10_001-1] //0-based
 }
 
+//8
 fun largestProductInASeries(): Any {
-    val input =
-        "73167176531330624919225119674426574742355349194934" +
-        "96983520312774506326239578318016984801869478851843" +
-        "85861560789112949495459501737958331952853208805511" +
-        "12540698747158523863050715693290963295227443043557" +
-        "66896648950445244523161731856403098711121722383113" +
-        "62229893423380308135336276614282806444486645238749" +
-        "30358907296290491560440772390713810515859307960866" +
-        "70172427121883998797908792274921901699720888093776" +
-        "65727333001053367881220235421809751254540594752243" +
-        "52584907711670556013604839586446706324415722155397" +
-        "53697817977846174064955149290862569321978468622482" +
-        "83972241375657056057490261407972968652414535100474" +
-        "82166370484403199890008895243450658541227588666881" +
-        "16427171479924442928230863465674813919123162824586" +
-        "17866458359124566529476545682848912883142607690042" +
-        "24219022671055626321111109370544217506941658960408" +
-        "07198403850962455444362981230987879927244284909188" +
-        "84580156166097919133875499200524063689912560717606" +
-        "05886116467109405077541002256983155200055935729725" +
-        "71636269561882670428252483600823257530420752963450"
-
-    val numberList = input.map { it.digitToInt().toLong() }
+//    val numberList = getInputLines("data/input008").map { line -> line.map{ ch -> ch.digitToInt().toLong()} }.flatten()
+    val numberList = getInputLinesFromFile("data/input008").flatMap { line -> line.map{ ch -> ch.digitToInt().toLong()} }
     val adjacentDigits = 13
     return numberList
         .windowed(adjacentDigits)
         .maxOf{list -> list.reduce { acc, i -> acc*i }}
 }
 
+
+//9
 fun specialPythagoreanTriplet(): Any {
     val n = 1000
     for (a in 1 .. n/3) {
@@ -152,6 +118,7 @@ fun specialPythagoreanTriplet(): Any {
     return 0
 }
 
+//10
 fun summationOfPrimes(): Any {
     return getPrimeList(2_000_000).sumOf { it.toLong() }
 }
