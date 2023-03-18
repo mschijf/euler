@@ -25,9 +25,11 @@ fun Int.dividerCount(): Int {
 
 fun Int.sumOfProperDivisors(): Int {
     var sum = 1
-    for (i in 2 ..sqrt(this.toDouble()).toInt()) {
-        if (this % i == 0)
-            sum += (i + this / i)
+    for (i in 2 .. sqrt(this.toDouble()).toInt()) {
+        if (this % i == 0) {
+            val other = this/i
+            sum += (i + if (i != other) other  else 0)
+        }
     }
     return sum
 //    return properDivisors().sum()
