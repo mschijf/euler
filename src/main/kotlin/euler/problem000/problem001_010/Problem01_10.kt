@@ -1,6 +1,8 @@
-package euler
+package euler.problem000.problem001_010
 
 import com.tool.math.lcm
+import euler.execute
+import euler.getInputLinesFromFile
 import tool.math.getPrimeList
 import kotlin.math.absoluteValue
 import kotlin.math.max
