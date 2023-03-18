@@ -1,6 +1,6 @@
 package euler.problem000.problem011_020
 
-import kotlin.math.sqrt
+import tool.math.dividerCount
 
 fun highlyDivisibleTriangularNumber():Any {
     var n=1
@@ -8,15 +8,7 @@ fun highlyDivisibleTriangularNumber():Any {
     do {
         n++
         triangleN += n
-    } while (dividerCount(triangleN) < 500)
+    } while (triangleN.dividerCount() < 500)
     return triangleN
 }
 
-private fun dividerCount(n: Int): Int {
-    var count = 1
-    for (i in 2 ..sqrt(n.toDouble()).toInt()) {
-        if (n % i == 0)
-            count++
-    }
-    return 2*count
-}

@@ -12,5 +12,5 @@ fun main() {
     execute(17) { numberLetterCounts() }
     execute(18) { maximumPathSum1() }
     execute(19) { countingSundays() }
-//    execute(20) { countingSundays() }
+    execute(20) { factorialDigitSum() }
 }
