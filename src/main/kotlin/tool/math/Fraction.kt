@@ -53,13 +53,10 @@ class Fraction(numerator: Int, denumerator: Int) : Comparable<Fraction> {
     override fun toString() = "($normalizedNumerator / $normalizedDenominator)"
 
     fun asDecimalString(): String {
-        var remainder = (normalizedNumerator % normalizedDenominator) * 10
-        if (remainder == 0) {
-            return "${normalizedNumerator / normalizedDenominator}"
-        }
-
         var decimalFraction = ""
         val remainderList = mutableListOf<Int>()
+
+        var remainder = (normalizedNumerator % normalizedDenominator) * 10
         remainderList.add(remainder)
         while (remainder != 0 && remainder < normalizedDenominator) {
             remainder *= 10
@@ -85,8 +82,10 @@ class Fraction(numerator: Int, denumerator: Int) : Comparable<Fraction> {
         val fixedFractionPart = decimalFraction.take(decimalFraction.length - cycleLength)
         val reciprocalCycle = if (cycleLength > 0) "(" + decimalFraction.takeLast(cycleLength) + ")" else ""
         val beforeComma = normalizedNumerator / normalizedDenominator
-        return "$beforeComma.$fixedFractionPart$reciprocalCycle"
+        val comma = if (decimalFraction.isNotEmpty()) "." else ""
+        return "$beforeComma$comma$fixedFractionPart$reciprocalCycle"
     }
+
 
     fun reciprocalCycleLength(): Int {
         var remainder = (normalizedNumerator % normalizedDenominator) * 10
@@ -112,7 +111,9 @@ class Fraction(numerator: Int, denumerator: Int) : Comparable<Fraction> {
             }
         }
 
-        val cycleLength = if (remainder != 0 && remainder in remainderList) remainderList.size - remainderList.indexOf(remainder) else 0
-        return cycleLength
+        return if (remainder != 0 && remainder in remainderList)
+            remainderList.size - remainderList.indexOf(remainder)
+        else
+            0
     }
 }
