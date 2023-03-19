@@ -51,4 +51,40 @@ class Fraction(numerator: Int, denumerator: Int) : Comparable<Fraction> {
     }
     override fun hashCode() = Pair(normalizedNumerator, normalizedDenumerator).hashCode()
     override fun toString() = "($normalizedNumerator / $normalizedDenumerator)"
+
+    fun asDecimalString(numerator: Int, denominator: Int): String {
+        var remainder = (numerator % denominator) * 10
+        if (remainder == 0) {
+            return "${numerator / denominator}"
+        }
+
+        var decimalFraction = ""
+        val remainderList = mutableListOf<Int>()
+        remainderList.add(remainder)
+        while (remainder != 0 && remainder < denominator) {
+            remainder *= 10
+            remainderList.add(remainder)
+            decimalFraction += "0"
+        }
+
+        while (remainder != 0) {
+            decimalFraction += remainder / denominator
+
+            remainder = (remainder % denominator) * 10
+            if (remainder == 0 || remainder in remainderList)
+                break;
+            remainderList.add(remainder)
+            while (remainder < denominator) {
+                remainder *= 10
+                remainderList.add(remainder)
+                decimalFraction += "0"
+            }
+        }
+
+        val cycleLength = if (remainder != 0 && remainder in remainderList) remainderList.size - remainderList.indexOf(remainder) else 0
+        val fixedFractionPart = decimalFraction.take(decimalFraction.length - cycleLength)
+        val reciprocalCycle = if (cycleLength > 0) "(" + decimalFraction.takeLast(cycleLength) + ")" else ""
+        val beforeComma = numerator / denominator
+        return "$beforeComma.$fixedFractionPart$reciprocalCycle"
+    }
 }

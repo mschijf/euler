@@ -63,3 +63,9 @@ private fun makeAllPermutations(n: Int, elements: IntArray): List<List<Int>> {
         return localList
     }
 }
+
+fun Long.fac():Long {
+    if (this == 0L)
+        return 1L
+    return (1..this).reduce { acc, i ->  acc*i}
+}

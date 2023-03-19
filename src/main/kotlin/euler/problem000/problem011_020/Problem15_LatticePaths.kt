@@ -1,5 +1,7 @@
 package euler.problem000.problem011_020
 
+import tool.math.fac
+
 fun latticePaths(): Any {
     val size = 20
     val grid = Array(size+1){ Array(size+1){ 1L } }
@@ -24,6 +26,3 @@ fun latticePathsByFac(): Any {
     return (x * y) / 10L.fac()
 }
 
-private fun Long.fac():Long {
-    return (1..this).reduce { acc, i ->  acc*i}
-}
