@@ -1,12 +1,24 @@
 package euler
 
 import java.io.File
+import java.lang.String.format
 
-fun execute(problemNumber: Int?=null, getResult: () -> Any) {
+fun execute(problemNumber: Int?=null, problemName: String? = null, getResult: () -> Any) {
     val startTime = System.currentTimeMillis()
     val result = getResult()
     val timePassed = System.currentTimeMillis() - startTime
-    println("Result ${if (problemNumber == null) "" else "of problem $problemNumber"}: $result (after ${timePassed / 1000}.${timePassed % 1000} sec)")
+
+    print("Result")
+    if (problemNumber != null) print(format(" of problem %3d", problemNumber))
+    if (problemName != null) print(format(" - %-30s", problemName))
+    print(format(": %20s", result) )
+    println(" (after ${timePassed / 1000}.${timePassed % 1000} sec)")
+}
+
+fun execute(eulerExecutable: EulerExecutable) {
+    val nr = eulerExecutable.problemNumber()
+    val name =  eulerExecutable.javaClass.name.substringAfterLast(".")
+    execute(nr, name) { eulerExecutable.solve() }
 }
 
 fun getInputLinesFromFile(fileName: String): List<String> {

@@ -1,12 +1,14 @@
 package euler.problem000.problem021_030
 
+import euler.EulerExecutable
 import tool.math.getPrimeList
 
-class QuadraticPrimes {
-
+class QuadraticPrimes: EulerExecutable {
     private val primeSet = getPrimeList(100_000).toSet() + 1
 
-    fun solve(): Any {
+    override fun problemNumber() = 27
+
+    override fun solve(): Any {
         val aRange = -999..999
         val bRange = -1000 .. 1000
 

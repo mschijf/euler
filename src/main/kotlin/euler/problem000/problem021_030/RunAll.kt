@@ -9,8 +9,9 @@ fun main() {
     execute(24) { lexicographicPermutations() }
     execute(25) { indexOf1000DigitFibonacciNumber() }
     execute(26) { reciprocalCycles() }
-    execute(27) { QuadraticPrimes().solve()}
-//    execute(28) { nonAbundantSums() }
+    execute(QuadraticPrimes())
+    execute(NumberSpiralDiagonals())
 //    execute(29) { nonAbundantSums() }
 //    execute(23) { nonAbundantSums() }
 }
+
