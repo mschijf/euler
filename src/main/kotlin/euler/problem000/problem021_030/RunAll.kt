@@ -9,9 +9,12 @@ fun main() {
     execute(24) { lexicographicPermutations() }
     execute(25) { indexOf1000DigitFibonacciNumber() }
     execute(26) { reciprocalCycles() }
-    execute(QuadraticPrimes())
-    execute(NumberSpiralDiagonals())
-//    execute(29) { nonAbundantSums() }
-//    execute(23) { nonAbundantSums() }
+
+    val eulerProjectList = listOf(
+        QuadraticPrimes(),
+        NumberSpiralDiagonals(),
+        DistinctPowers()
+    )
+    eulerProjectList.forEach { execute(it) }
 }
 
