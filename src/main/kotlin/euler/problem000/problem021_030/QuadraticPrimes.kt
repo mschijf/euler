@@ -6,7 +6,7 @@ import tool.math.getPrimeList
 class QuadraticPrimes: EulerExecutable {
     private val primeSet = getPrimeList(100_000).toSet() + 1
 
-    override fun problemNumber() = 27
+    override val problemNumber = 27
 
     override fun solve(): Any {
         val aRange = -999..999

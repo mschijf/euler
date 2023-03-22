@@ -3,7 +3,7 @@ package euler.problem000.problem021_030
 import euler.EulerExecutable
 
 class DistinctPowers: EulerExecutable {
-    override fun problemNumber() = 29
+    override val problemNumber = 29
 
     override fun solve(): Any {
         return (2..100)

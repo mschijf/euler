@@ -13,7 +13,8 @@ fun main() {
     val eulerProjectList = listOf(
         QuadraticPrimes(),
         NumberSpiralDiagonals(),
-        DistinctPowers()
+        DistinctPowers(),
+        DigitFifthPowers(),
     )
     eulerProjectList.forEach { execute(it) }
 }

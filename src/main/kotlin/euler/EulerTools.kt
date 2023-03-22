@@ -12,11 +12,11 @@ fun execute(problemNumber: Int?=null, problemName: String? = null, getResult: ()
     if (problemNumber != null) print(format(" of problem %3d", problemNumber))
     if (problemName != null) print(format(" - %-30s", problemName))
     print(format(": %20s", result) )
-    println(" (after ${timePassed / 1000}.${timePassed % 1000} sec)")
+    println(format(" (after %d.%03d sec)", timePassed / 1000, timePassed % 1000))
 }
 
 fun execute(eulerExecutable: EulerExecutable) {
-    val nr = eulerExecutable.problemNumber()
+    val nr = eulerExecutable.problemNumber
     val name =  eulerExecutable.javaClass.name.substringAfterLast(".")
     execute(nr, name) { eulerExecutable.solve() }
 }
