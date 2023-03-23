@@ -3,21 +3,21 @@ package com.tool.math
 import kotlin.math.absoluteValue
 import kotlin.math.sign
 
-class Fraction(numerator: Int, denumerator: Int) : Comparable<Fraction> {
+class Fraction(numerator: Int, denominator: Int) : Comparable<Fraction> {
 
     val normalizedNumerator: Int
     val normalizedDenominator: Int
     init {
-        val gcd = gcd(numerator.absoluteValue, denumerator.absoluteValue)
-        if (denumerator == 0) {
+        val gcd = gcd(numerator.absoluteValue, denominator.absoluteValue)
+        if (denominator == 0) {
             normalizedNumerator = if (numerator == 0) 0 else numerator.sign
             normalizedDenominator = 0
         } else if (numerator == 0) {
             normalizedNumerator = 0
-            normalizedDenominator = denumerator.sign
+            normalizedDenominator = denominator.sign
         } else {
             normalizedNumerator = numerator / gcd
-            normalizedDenominator = denumerator / gcd
+            normalizedDenominator = denominator / gcd
         }
     }
 
@@ -32,8 +32,6 @@ class Fraction(numerator: Int, denumerator: Int) : Comparable<Fraction> {
             this.normalizedDenominator * other.normalizedDenominator)
 
     operator fun minus(other: Fraction) = this + Fraction(-1*other.normalizedNumerator, other.normalizedDenominator)
-//        Fraction(this.normalizedNumerator * other.normalizedDenominator - this.normalizedDenominator * other.normalizedNumerator,
-//            this.normalizedDenominator * other.normalizedDenominator)
 
     private fun doubleValue() = normalizedNumerator.toDouble() /normalizedDenominator.toDouble()
 
