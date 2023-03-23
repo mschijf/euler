@@ -21,6 +21,20 @@ class Fraction(numerator: Int, denumerator: Int) : Comparable<Fraction> {
         }
     }
 
+    operator fun times(other: Fraction) =
+        Fraction(this.normalizedNumerator * other.normalizedNumerator,
+            this.normalizedDenominator * other.normalizedDenominator)
+
+    operator fun div(other: Fraction) = this * Fraction(other.normalizedDenominator, other.normalizedNumerator)
+
+    operator fun plus(other: Fraction) =
+        Fraction(this.normalizedNumerator * other.normalizedDenominator + this.normalizedDenominator * other.normalizedNumerator,
+            this.normalizedDenominator * other.normalizedDenominator)
+
+    operator fun minus(other: Fraction) = this + Fraction(-1*other.normalizedNumerator, other.normalizedDenominator)
+//        Fraction(this.normalizedNumerator * other.normalizedDenominator - this.normalizedDenominator * other.normalizedNumerator,
+//            this.normalizedDenominator * other.normalizedDenominator)
+
     private fun doubleValue() = normalizedNumerator.toDouble() /normalizedDenominator.toDouble()
 
     override fun compareTo(other: Fraction): Int {

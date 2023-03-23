@@ -5,7 +5,8 @@ import euler.execute
 fun main() {
     val eulerProjectList = listOf(
         CoinSums(),
-        PandigitalProducts()
+        PandigitalProducts(),
+        DigitCancellingFractions()
     )
     eulerProjectList.forEach { execute(it) }
 }
