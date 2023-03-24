@@ -7,7 +7,8 @@ fun main() {
         CoinSums(),
         PandigitalProducts(),
         DigitCancellingFractions(),
-        DigitFactorials()
+        DigitFactorials(),
+        CircularPrimes()
     )
     eulerProjectList.forEach { execute(it) }
 }
