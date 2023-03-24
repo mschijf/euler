@@ -6,7 +6,8 @@ fun main() {
     val eulerProjectList = listOf(
         CoinSums(),
         PandigitalProducts(),
-        DigitCancellingFractions()
+        DigitCancellingFractions(),
+        DigitFactorials()
     )
     eulerProjectList.forEach { execute(it) }
 }

@@ -69,3 +69,7 @@ fun Long.fac():Long {
         return 1L
     return (1..this).reduce { acc, i ->  acc*i}
 }
+
+fun Int.fac():Long {
+    return this.toLong().fac()
+}
