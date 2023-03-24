@@ -1,8 +1,6 @@
 package euler.problem000.problem031_040
 
 import euler.EulerExecutable
-import euler.problem000.problem001_010.eratosthenes
-import tool.math.fac
 import tool.math.getPrimeList
 
 class CircularPrimes: EulerExecutable {
