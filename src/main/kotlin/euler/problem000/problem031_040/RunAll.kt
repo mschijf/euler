@@ -3,6 +3,7 @@ package euler.problem000.problem031_040
 import euler.execute
 
 fun main() {
+    val startProblemNumber = 31
     val classList = listOf(
         CoinSums::class,
         PandigitalProducts::class,
@@ -16,6 +17,6 @@ fun main() {
         ChampernownesConstant::class
     )
 
-    classList.forEach { execute(it) }
+    classList.forEachIndexed { index, kClass -> execute(startProblemNumber+index, kClass) }
 }
 

@@ -20,6 +20,20 @@ fun main() {
     execute(10) { summationOfPrimes() }
 }
 
+private fun execute(problemNumber: Int?=null, problemName: String? = null, getResult: () -> Any) {
+    val startTime = System.currentTimeMillis()
+    val result = getResult()
+    val timePassed = System.currentTimeMillis() - startTime
+
+    print("Result")
+    if (problemNumber != null) print(java.lang.String.format(" of problem %3d", problemNumber))
+    if (problemName != null) print(java.lang.String.format(" - %-30s", problemName))
+    print(java.lang.String.format(": %20s", result))
+    println(java.lang.String.format(" (after %d.%03d sec)", timePassed / 1000, timePassed % 1000))
+}
+
+
+
 //1
 fun multiplesOf3And5():Any {
     return (0 .. 999).filter {it % 3 == 0 || it % 5 == 0}.sum()
