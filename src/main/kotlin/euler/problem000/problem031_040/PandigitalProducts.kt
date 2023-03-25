@@ -3,7 +3,6 @@ package euler.problem000.problem031_040
 import euler.EulerExecutable
 
 class PandigitalProducts: EulerExecutable {
-    override val problemNumber = 32
 
     override fun solve(): Any {
         val aaa = (1..98)
@@ -14,7 +13,6 @@ class PandigitalProducts: EulerExecutable {
             .toSet()
             .sum()
         return aaa
-
     }
 
     private fun isPandigitalProductOf(a: Int, b:Int): Boolean {

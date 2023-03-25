@@ -4,8 +4,6 @@ import euler.EulerExecutable
 import tool.math.getPrimeList
 
 class CircularPrimes: EulerExecutable {
-    override val problemNumber = 35
-
     private val primeList = getPrimeList(1_000_000).toSet()
 
     override fun solve(): Any {

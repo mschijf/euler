@@ -4,7 +4,6 @@ import euler.EulerExecutable
 import tool.math.getPrimeList
 
 class TruncatablePrimes: EulerExecutable {
-    override val problemNumber = 37
 
     private val primeSet = getPrimeList(1_000_000).toSet()
 

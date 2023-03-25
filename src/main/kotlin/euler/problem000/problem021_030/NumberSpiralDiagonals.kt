@@ -4,8 +4,6 @@ import euler.EulerExecutable
 
 class NumberSpiralDiagonals: EulerExecutable {
 
-    override val problemNumber = 28
-
     /*
      * Looking at the spiral, we can see that every new round gets four new corners.
      * We see that (starting at the right top, counter clockwise):

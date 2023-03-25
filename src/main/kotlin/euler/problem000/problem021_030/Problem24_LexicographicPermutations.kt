@@ -1,20 +1,24 @@
 package euler.problem000.problem021_030
 
+import euler.EulerExecutable
 import tool.math.fac
 
-fun lexicographicPermutations(): Any {
-    val permCountList = (0..9L).map { it.fac() }
+class LexicographicPermutations: EulerExecutable {
 
-    val result = mutableListOf<Int>()
-    val list = mutableListOf(0,1,2,3,4,5,6,7,8,9)
-    var findIndex = 999_999L
-    for (i in 9 downTo 0) {
-        val count = findIndex / permCountList[i]
-        findIndex %= permCountList[i]
+    override fun solve(): Any {
+        val permCountList = (0..9L).map { it.fac() }
+
+        val result = mutableListOf<Int>()
+        val list = mutableListOf(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
+        var findIndex = 999_999L
+        for (i in 9 downTo 0) {
+            val count = findIndex / permCountList[i]
+            findIndex %= permCountList[i]
 //        println("$i: $count  ($findIndex) $list --> ${list[count.toInt()]}")
-        result.add(list.removeAt(count.toInt()))
+            result.add(list.removeAt(count.toInt()))
+        }
+        return result.joinToString("")
     }
-    return result.joinToString("")
 }
 
 

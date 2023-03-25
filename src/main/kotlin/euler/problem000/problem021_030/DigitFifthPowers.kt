@@ -3,8 +3,6 @@ package euler.problem000.problem021_030
 import euler.EulerExecutable
 
 class DigitFifthPowers: EulerExecutable {
-    override val problemNumber = 30
-
     override fun solve(): Any {
         return (2..1_000_000).filter{it.sumOfPowers(5) == it}.sum()
     }

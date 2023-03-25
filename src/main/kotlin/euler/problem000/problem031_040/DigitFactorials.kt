@@ -4,8 +4,6 @@ import euler.EulerExecutable
 import tool.math.fac
 
 class DigitFactorials: EulerExecutable {
-    override val problemNumber = 34
-
     override fun solve(): Any {
         return (3..7*9.fac().toInt())
             .filter { it == it.sumOfdigit { fac().toInt() }}

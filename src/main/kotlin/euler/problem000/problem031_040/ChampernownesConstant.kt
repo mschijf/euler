@@ -3,8 +3,6 @@ package euler.problem000.problem031_040
 import euler.EulerExecutable
 
 class ChampernownesConstant: EulerExecutable {
-    override val problemNumber = 40
-
     // little complex solution (straightforward one is below out-commented
     // but saves memory
     override fun solve(): Any {

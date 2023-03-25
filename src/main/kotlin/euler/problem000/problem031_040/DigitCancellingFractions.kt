@@ -4,8 +4,6 @@ import com.tool.math.Fraction
 import euler.EulerExecutable
 
 class DigitCancellingFractions: EulerExecutable {
-    override val problemNumber = 33
-
     override fun solve(): Any {
         val list = (11..98)
             .map{numerator -> (numerator+1..99)

@@ -1,7 +1,5 @@
 package euler.problem000.problem011_020
 
-import euler.execute
-
 fun main() {
     execute(11) { largestProductInGrid() }
     execute(12) { highlyDivisibleTriangularNumber() }

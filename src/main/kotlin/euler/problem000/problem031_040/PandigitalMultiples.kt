@@ -1,13 +1,10 @@
 package euler.problem000.problem031_040
 
 import euler.EulerExecutable
-import tool.math.getPrimeList
 
 class PandigitalMultiples: EulerExecutable {
-    override val problemNumber = 38
 
     override fun solve(): Any {
-
         return (1..9999)
             .map{ nr ->
                 (2..9)
