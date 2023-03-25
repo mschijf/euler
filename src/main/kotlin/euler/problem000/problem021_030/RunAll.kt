@@ -11,10 +11,10 @@ fun main() {
     execute(26) { reciprocalCycles() }
 
     val eulerProjectList = listOf(
-        QuadraticPrimes(),
-        NumberSpiralDiagonals(),
-        DistinctPowers(),
-        DigitFifthPowers(),
+        QuadraticPrimes::class,
+        NumberSpiralDiagonals::class,
+        DistinctPowers::class,
+        DigitFifthPowers::class,
     )
     eulerProjectList.forEach { execute(it) }
 }
