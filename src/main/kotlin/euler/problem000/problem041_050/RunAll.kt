@@ -15,6 +15,7 @@ fun main() {
         DistinctPrimesFactors::class,
         SelfPowers::class,
         PrimePermutations::class,
+        ConsecutivePrimeSum::class
     )
 
     classList.forEachIndexed { index, kClass -> execute(startProblemNumber+index, kClass) }
