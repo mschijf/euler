@@ -1,5 +1,7 @@
 package tool.math
 
+import kotlin.math.sqrt
+
 /**
  * returns a list of all primes below 'n'
  */
@@ -19,4 +21,12 @@ fun getPrimeList(n: Int): List<Int> {
         }
     }
     return primeList
+}
+
+fun Int.isPrime(): Boolean {
+    if (this < 2)
+        return false
+    if (this == 2)
+        return true
+    return (this % 2 != 0 ) && (3..sqrt(this.toDouble()).toInt() step 2).all{this != it && this % it != 0}
 }
