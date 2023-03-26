@@ -11,6 +11,7 @@ fun main() {
         SubStringDivisibility::class,
         PentagonNumbers::class,
         TriangularPentagonalHexagonal::class,
+        GoldbachsOtherConjecture::class,
     )
 
     classList.forEachIndexed { index, kClass -> execute(startProblemNumber+index, kClass) }

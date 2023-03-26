@@ -1,9 +1,7 @@
 package euler.problem000.problem041_050
 
 import euler.EulerExecutable
-import tool.math.isHexagonal
 import tool.math.isPentagonal
-import kotlin.math.min
 
 class TriangularPentagonalHexagonal: EulerExecutable {
 
