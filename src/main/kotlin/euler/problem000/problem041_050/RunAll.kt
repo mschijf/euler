@@ -8,6 +8,9 @@ fun main() {
     val classList = listOf(
         PandigitalPrime::class,
         CodedTriangleNumbers::class,
+        SubStringDivisibility::class,
+        PentagonNumbers::class,
+        TriangularPentagonalHexagonal::class,
     )
 
     classList.forEachIndexed { index, kClass -> execute(startProblemNumber+index, kClass) }
