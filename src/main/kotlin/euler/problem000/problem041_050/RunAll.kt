@@ -12,6 +12,9 @@ fun main() {
         PentagonNumbers::class,
         TriangularPentagonalHexagonal::class,
         GoldbachsOtherConjecture::class,
+        DistinctPrimesFactors::class,
+        SelfPowers::class,
+        PrimePermutations::class,
     )
 
     classList.forEachIndexed { index, kClass -> execute(startProblemNumber+index, kClass) }

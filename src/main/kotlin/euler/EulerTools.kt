@@ -3,11 +3,12 @@ package euler
 import java.io.File
 import java.lang.String.format
 import kotlin.reflect.KClass
+import kotlin.reflect.full.createInstance
 
 fun execute(problemNumber: Int, eulerExecutableClass: KClass<out EulerExecutable>) {
     val startTime = System.currentTimeMillis()
 
-    val eulerExecutable = eulerExecutableClass.java.getDeclaredConstructor().newInstance()
+    val eulerExecutable = eulerExecutableClass.createInstance()
 
     val problemName =  eulerExecutableClass.simpleName
     val result = eulerExecutable.solve()

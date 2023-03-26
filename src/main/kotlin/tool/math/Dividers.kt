@@ -34,3 +34,7 @@ fun Int.sumOfProperDivisors(): Int {
     return sum
 //    return properDivisors().sum()
 }
+
+fun Int.primeDividers(): Set<Int> {
+    return this.properDivisors().filter{it.isPrime()}.toSet()
+}
