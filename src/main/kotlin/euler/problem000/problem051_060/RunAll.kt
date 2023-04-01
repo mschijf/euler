@@ -9,7 +9,7 @@ fun main() {
         PrimeDigitReplacements::class,
         PermutedMultiples::class,
         CombinatoricSelections::class,
-//        PentagonNumbers::class,
+        PokerHands::class,
 //        TriangularPentagonalHexagonal::class,
 //        GoldbachsOtherConjecture::class,
 //        DistinctPrimesFactors::class,
