@@ -7,7 +7,7 @@ fun main() {
 
     val classList = listOf(
         PrimeDigitReplacements::class,
-//        CodedTriangleNumbers::class,
+        PermutedMultiples::class,
 //        SubStringDivisibility::class,
 //        PentagonNumbers::class,
 //        TriangularPentagonalHexagonal::class,
