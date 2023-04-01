@@ -9,25 +9,27 @@ class PrimeDigitReplacements: EulerExecutable {
     private val primeSet = primeList.toSet()
 
     override fun solve(): Any {
-        return primeList.map{it.createPatterns()}.filter{it.size == 8}.distinct()
+        return primeList.asSequence()
+            .map{it.createPatterns()}.flatten().distinct()
+            .map{it.patternToNumbers()}.first { numberList -> numberList.size == 8 }
+            .first()
     }
 
-    private fun Int.createPatterns(pattern: String=""): List<Int> {
+    private fun Int.createPatterns(pattern: String=""): List<String> {
         return if (this == 0) {
-            pattern.checkPattern()
+            listOf(pattern)
         } else {
-            listOf((this%10), '*')
-                .map { (this/10).createPatterns( it.toString() + pattern) }
-                .maxBy { it.size }
+            listOf((this%10), '*').map { (this/10).createPatterns( it.toString() + pattern) }.flatten()
         }
     }
 
-    private fun String.checkPattern(): List<Int> {
-        if (this.all{it == '*'} || this.none{it == '*'} )
-            return emptyList()
-        return (if (this.startsWith('*')) ('1'..'9')  else  ('0'..'9'))
-            .map{this.replace('*', it).toInt()}
-            .filter{it in primeSet}
+    private fun String.patternToNumbers(): List<Int> {
+        return if (this.all{it == '*'} || this.none{it == '*'} )
+            emptyList()
+        else
+            (if (this.startsWith('*')) ('1'..'9')  else  ('0'..'9'))
+                .map{this.replace('*', it).toInt()}
+                .filter{it in primeSet}
     }
 
 }
