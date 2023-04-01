@@ -6,9 +6,8 @@ import kotlin.math.max
 class CombinatoricSelections: EulerExecutable {
 
     override fun solve(): Any {
-        val xx =  (1..100).map { n -> (1..n).map{ r -> Pair(n, r) } }.flatten()
-        val yy = xx.filter{ combinationBiggerThanMillion(it.first, it.second) }
-        return yy.count()
+        return (1..100).map { n -> (1..n).map { r -> Pair(n, r) } }.flatten()
+            .count { combinationBiggerThanMillion(it.first, it.second) }
     }
 
     private fun combinationBiggerThanMillion(n: Int, r: Int): Boolean {
