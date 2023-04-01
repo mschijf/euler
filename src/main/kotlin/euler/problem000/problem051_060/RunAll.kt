@@ -10,7 +10,7 @@ fun main() {
         PermutedMultiples::class,
         CombinatoricSelections::class,
         PokerHands::class,
-//        TriangularPentagonalHexagonal::class,
+        LychrelNumbers::class,
 //        GoldbachsOtherConjecture::class,
 //        DistinctPrimesFactors::class,
 //        SelfPowers::class,
