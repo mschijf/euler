@@ -8,7 +8,7 @@ fun main() {
     val classList = listOf(
         PrimeDigitReplacements::class,
         PermutedMultiples::class,
-//        SubStringDivisibility::class,
+        CombinatoricSelections::class,
 //        PentagonNumbers::class,
 //        TriangularPentagonalHexagonal::class,
 //        GoldbachsOtherConjecture::class,
