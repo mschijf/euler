@@ -12,7 +12,7 @@ fun main() {
         PokerHands::class,
         LychrelNumbers::class,
         PowerfulDigitSum::class,
-//        DistinctPrimesFactors::class,
+        SquareRootConvergents::class,
 //        SelfPowers::class,
 //        PrimePermutations::class,
 //        ConsecutivePrimeSum::class
