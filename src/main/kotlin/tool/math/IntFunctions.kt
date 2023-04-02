@@ -1,5 +1,7 @@
 package tool.math
 
+import java.math.BigInteger
+
 fun Int.toDigitList(): List<Int> {
     val result = mutableListOf<Int>()
     var base = this
@@ -32,3 +34,14 @@ fun Int.log10(): Int {
 }
 
 fun Int.digitLength() = this.log10()+1
+
+fun Int.digitSum(): Int {
+    var sum = 0
+    var base = this
+    while (base != 0) {
+        sum += base % 10
+        base /= 10
+    }
+    return sum
+}
+

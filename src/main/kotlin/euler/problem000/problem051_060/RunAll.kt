@@ -11,7 +11,7 @@ fun main() {
         CombinatoricSelections::class,
         PokerHands::class,
         LychrelNumbers::class,
-//        GoldbachsOtherConjecture::class,
+        PowerfulDigitSum::class,
 //        DistinctPrimesFactors::class,
 //        SelfPowers::class,
 //        PrimePermutations::class,
