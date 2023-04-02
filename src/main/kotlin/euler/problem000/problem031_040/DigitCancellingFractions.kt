@@ -1,6 +1,6 @@
 package euler.problem000.problem031_040
 
-import com.tool.math.Fraction
+import tool.math.Fraction
 import euler.EulerExecutable
 
 class DigitCancellingFractions: EulerExecutable {

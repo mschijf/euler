@@ -1,6 +1,6 @@
 package euler.problem000.problem021_030
 
-import com.tool.math.Fraction
+import tool.math.Fraction
 import euler.EulerExecutable
 
 class ReciprocalCycles: EulerExecutable {
