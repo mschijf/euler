@@ -13,7 +13,7 @@ fun main() {
         LychrelNumbers::class,
         PowerfulDigitSum::class,
         SquareRootConvergents::class,
-//        SelfPowers::class,
+        SpiralPrimes::class,
 //        PrimePermutations::class,
 //        ConsecutivePrimeSum::class
     )
