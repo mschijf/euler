@@ -14,7 +14,7 @@ fun main() {
         PowerfulDigitSum::class,
         SquareRootConvergents::class,
         SpiralPrimes::class,
-//        PrimePermutations::class,
+        XOR_Decryption::class,
 //        ConsecutivePrimeSum::class
     )
 
