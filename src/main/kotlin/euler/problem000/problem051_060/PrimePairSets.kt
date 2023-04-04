@@ -1,63 +1,47 @@
 package euler.problem000.problem051_060
 
 import euler.EulerExecutable
-import euler.getInputLinesFromFile
+import tool.math.digitLength
 import tool.math.getPrimeList
 import tool.math.isPrime
+import tool.math.pow
+import kotlin.math.min
 
 class PrimePairSets: EulerExecutable {
 
     private val primeList = getPrimeList(10_000)
 
     override fun solve(): Any {
-        val set2 = mutableListOf<Set<Int>>()
-        for (i1 in 0 until primeList.size-1) {
-            for (i2 in i1+1 until primeList.size) {
-                if (primeList[i1].primePairSet(primeList[i2])) {
-                    set2.add(setOf(primeList[i1],primeList[i2]))
-                }
+        return solveRec(5)
+    }
+
+    //
+    // flink gereduceerd naar onderstaan algoritme
+    // idee: doorloop alle 5 tallen van een gegeven set van priemgetallen
+    // check per toegevoegd priemgetal of het nog een priemPaar is met de vorige reeds gekozen
+    // eenmaal vijf gekozen, (die dus alle vijf priemparen van elkaar zijn) bepaal dan de som
+
+    private fun solveRec(nrsToGo: Int, primes: List<Int> = emptyList(), start:Int=0): Int {
+        if (nrsToGo == 0)
+            return primes.sum()
+        var minSum = 999_999_999
+        for (i in start until primeList.size-nrsToGo-1) {
+            val p = primeList[i]
+            if (primes.all { it.primePair(p) }) {
+                minSum = min(minSum, solveRec(nrsToGo - 1, primes + p, i + 1))
             }
         }
-        println(set2.size)
-
-        val set5 = set2
-            .extendOneMore()
-            .extendOneMore()
-            .extendOneMore()
-
-        return set5.minBy{it.sum()}
+        return minSum
     }
 
-    private fun List<Set<Int>>.extendOneMore(): List<Set<Int>> {
-        val result = mutableListOf<Set<Int>>()
-        for (p in primeList) {
-            for (s in this) {
-                if (p.primePairSet(s)) {
-                    result.add(s+p)
-                }
-            }
-        }
-        println(result.size)
-        return result
-    }
+    private fun Int.primePair(other: Int): Boolean {
+        val x10 = 10.pow(this.digitLength()).toInt()
+        val y10 = 10.pow(other.digitLength()).toInt()
 
-    private fun Int.primePairSet(aSet: Set<Int>): Boolean {
-        if (this in aSet)
-            return false
-        return aSet.all{ this.primePairSet(it) }
-    }
+        val a = x10*other + this
+        val b = y10*this + other
 
-    private fun Int.primePairSet(other: Int): Boolean {
-        if (this == other)
-            return false
-        val s1 = this.toString()
-        val s2 = other.toString()
-        if (s1.length + s2.length >= 9)
-            return false
-        val a = (s1+s2).toInt()
-        val b = (s2+s1).toInt()
-        val x = a.isPrime() && b.isPrime()
-        return x
+        return a.isPrime() && b.isPrime()
     }
 
 }

@@ -22,6 +22,13 @@ fun Int.toDigitSet(): Set<Int> {
     return result
 }
 
+fun Int.pow(power: Int):Long {
+    var base = 1L
+    repeat(power) {
+        base *= this
+    }
+    return base
+}
 
 fun Int.log10(): Int {
     var base = this
@@ -32,6 +39,7 @@ fun Int.log10(): Int {
     }
     return c
 }
+
 
 fun Int.digitLength() = this.log10()+1
 
