@@ -15,7 +15,7 @@ fun main() {
         SquareRootConvergents::class,
         SpiralPrimes::class,
         XOR_Decryption::class,
-//        ConsecutivePrimeSum::class
+        PrimePairSets::class
     )
 
     classList.forEachIndexed { index, kClass -> execute(startProblemNumber+index, kClass) }
