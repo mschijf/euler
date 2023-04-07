@@ -1,5 +1,9 @@
 package tool.math
 
+/**
+ * returns a list of the digits. The lowest digit will be put at index 0.
+ * Example: 3456.toDigitList() = [3,4,5,6]
+ */
 fun Int.toDigitList(): List<Int> = this.toLong().toDigitList()
 fun Long.toDigitList(): List<Int> {
     val result = mutableListOf<Int>()
@@ -9,14 +13,6 @@ fun Long.toDigitList(): List<Int> {
         base /= 10
     }
     return result
-}
-
-fun List<Int>.toLong() : Long {
-    var acc = 0L
-    for (i in this.size-1 downTo 0) {
-        acc = 10*acc + this[i]
-    }
-    return acc
 }
 
 fun Int.toDigitSet(): Set<Int> {

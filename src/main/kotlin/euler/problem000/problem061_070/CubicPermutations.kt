@@ -13,5 +13,15 @@ class CubicPermutations: EulerExecutable {
             .map{ it.value.min() }
             .min()
     }
+
+    fun List<Int>.toLong() : Long {
+        var acc = 0L
+        for (i in this.size-1 downTo 0) {
+            acc = 10*acc + this[i]
+        }
+        return acc
+    }
+
+
 }
 
