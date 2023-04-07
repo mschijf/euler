@@ -1,15 +1,22 @@
 package tool.math
 
-import java.math.BigInteger
-
-fun Int.toDigitList(): List<Int> {
+fun Int.toDigitList(): List<Int> = this.toLong().toDigitList()
+fun Long.toDigitList(): List<Int> {
     val result = mutableListOf<Int>()
     var base = this
-    while (base != 0) {
-        result.add( base % 10)
+    while (base != 0L) {
+        result.add( (base % 10).toInt())
         base /= 10
     }
-    return result.reversed()
+    return result
+}
+
+fun List<Int>.toLong() : Long {
+    var acc = 0L
+    for (i in this.size-1 downTo 0) {
+        acc = 10*acc + this[i]
+    }
+    return acc
 }
 
 fun Int.toDigitSet(): Set<Int> {
