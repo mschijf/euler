@@ -8,7 +8,7 @@ fun main() {
     val classList = listOf(
         CyclicalFigurateNumbers::class,
         CubicPermutations::class,
-//        CombinatoricSelections::class,
+        PowerfulDigitCounts::class,
 //        PokerHands::class,
 //        LychrelNumbers::class,
 //        PowerfulDigitSum::class,
